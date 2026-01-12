@@ -1,0 +1,47 @@
+services:
+  test-db:
+    image: postgres:15
+    container_name: sales_reports_test_db
+    environment:
+      POSTGRES_DB: test_sales_reports
+      POSTGRES_USER: test_user
+      POSTGRES_PASSWORD: test_password
+    ports:
+      - "5434:5432"
+    volumes:
+      - ../database/init-test:/docker-entrypoint-initdb.d
+    tmpfs:
+      - /var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U test_user -d test_sales_reports"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  test-backend:
+    build: ../backend
+    container_name: sales_reports_test_backend
+    environment:
+      - DATABASE_URL=postgresql+psycopg://test_user:test_password@test-db:5432/test_sales_reports
+      - PYTHON_ENV=test
+    depends_on:
+      test-db:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  test-runner:
+    build: ../backend
+    container_name: sales_reports_test_runner
+    environment:
+      - PYTHON_ENV=test
+      - API_URL=http://test-backend:8000
+    depends_on:
+      test-backend:
+        condition: service_healthy
+    volumes:
+      - ../backend:/app
+    command: pytest tests/ -v -s
