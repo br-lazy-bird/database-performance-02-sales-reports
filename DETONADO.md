@@ -58,25 +58,6 @@ The **N+1 query problem** is a common performance issue when using ORMs (Object-
 2. For each item, the ORM executes **1 additional query** to fetch related data
 3. **Total: 1 + N queries** (hence "N+1")
 
-**The Analogy:**
-
-Imagine you're a librarian helping someone find information about 500 authors:
-
-**Inefficient (N+1 Problem):**
-```
-1. Get list of 500 author names from main catalog (1 query)
-2. For each author:
-   - Walk to biography section to get their birthplace (500 queries)
-   - Walk to publications section to count their books (500 queries)
-Total: 1 + 500 + 500 = 1,001 trips
-```
-
-**Efficient (Eager Loading):**
-```
-1. Get all author names, birthplaces, and book counts in one trip (1-3 queries total)
-Total: 1-3 trips
-```
-
 ### How ORMs Create This Problem
 
 ORMs use **lazy loading** by default—related data is only fetched when accessed:
@@ -299,7 +280,7 @@ Go back to the frontend (http://localhost:3000) and click "Load Report" again.
 - Execution Time: 200-300ms
 
 **AFTER:**
-- Query Count: **3** queries
+- Query Count: **2** queries
 - Execution Time: **30-80ms** (3-5x faster)
 
 ### Step 2: Understand the New Query Pattern
@@ -334,7 +315,7 @@ The optimization should **not change the output**—only the efficiency.
 
 ### Success Criteria
 
-✅ Query count reduced from ~685 to 3-5 queries (99% reduction)
+✅ Query count reduced from ~685 to 2-5 queries (99% reduction)
 ✅ Execution time reduced by 50-80%
 ✅ All orders display complete data
 ✅ No errors in backend logs
