@@ -1,7 +1,7 @@
 services:
   db:
     image: postgres:15
-    container_name: sales_report_db
+    container_name: orders_report_db
     environment:
       POSTGRES_DB: ${POSTGRES_DB}
       POSTGRES_USER: ${POSTGRES_USER}
@@ -19,7 +19,7 @@ services:
 
   backend:
     build: ../backend
-    container_name: sales_report_backend
+    container_name: orders_report_backend
     environment:
       - DATABASE_URL=${DATABASE_URL}
       - PYTHON_ENV=${PYTHON_ENV}
@@ -40,7 +40,7 @@ services:
 
   frontend:
     build: ../frontend
-    container_name: sales_report_frontend
+    container_name: orders_report_frontend
     environment:
       - NODE_ENV=${NODE_ENV}
       - REACT_APP_API_URL=http://localhost:${BACKEND_PORT}

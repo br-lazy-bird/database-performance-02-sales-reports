@@ -38,8 +38,8 @@ const OrdersReport: React.FC = () => {
 
       <div className="ordersReportDescription">
         <p>
-          The sales reports system has been experiencing performance degradation.
-          Management has reported that generating the daily sales report is taking
+          The orders report system has been experiencing performance degradation.
+          Management has reported that generating the daily orders report is taking
           significantly longer than it should, impacting operational efficiency.
         </p>
         <div className="note">
@@ -51,7 +51,7 @@ const OrdersReport: React.FC = () => {
           </p>
         </div>
         <p>
-          Click the button below to load the sales report and observe the load time.
+          Click the button below to load the orders report and observe the load time.
           The system needs investigation to identify why report generation is so slow.
         </p>
       </div>

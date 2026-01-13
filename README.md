@@ -1,6 +1,6 @@
-# Sales Reports System
+# Orders Report System
 
-A sales reporting system experiencing performance issues. Investigate why report generation is slow and optimize the backend to improve response times.
+An orders reporting system experiencing performance issues. Investigate why report generation is slow and optimize the backend to improve response times.
 
 ---
 
@@ -63,7 +63,7 @@ The system will start three services:
 
 ## The Problem
 
-When you load the sales report in the application, you'll notice the system takes significantly longer than expected to generate the report.
+When you load the orders report in the application, you'll notice the system takes significantly longer than expected to generate the report.
 
 **Your Mission:**
 
@@ -110,7 +110,7 @@ The report displays a scrollable table with:
 ### API Endpoints
 
 **GET /orders/report**
-- Returns the complete sales report with all orders
+- Returns the complete orders report with all orders
 - Includes metadata: query_count, execution_time_ms, total_orders
 - Response format:
   ```json

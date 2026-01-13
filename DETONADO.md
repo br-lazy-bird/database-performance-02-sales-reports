@@ -1,4 +1,4 @@
-# DETONADO: Sales Reports System Optimization
+# DETONADO: Orders Report System Optimization
 
 ## Learning Objectives
 
@@ -83,7 +83,7 @@ If you want to see the actual SQL queries being executed, you can enable SQLAlch
 
 ```bash
 # In backend container, the logs will show each query
-docker logs sales_report_backend -f
+docker logs orders_report_backend -f
 ```
 
 You'll see patterns like:
@@ -199,7 +199,7 @@ WHERE order_id IN (1, 2, 3, ..., 500);
 | **JOIN-based** | One-to-one or many-to-one relationships | Single query but potential row duplication |
 | **Separate query** | One-to-many with large datasets | Multiple queries but no duplication |
 
-**For our sales report case:**
+**For our orders report case:**
 - **Customer relationship:** One order → one customer (use JOIN-based)
 - **Items relationship:** One order → many items (use separate query strategy)
 
