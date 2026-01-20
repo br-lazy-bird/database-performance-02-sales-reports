@@ -37,11 +37,15 @@ const OrdersReport: React.FC = () => {
       <h2 className="ordersReportTitle">Orders Report</h2>
 
       <div className="ordersReportDescription">
-        <p>
-          The orders report system has been experiencing performance degradation.
-          Management has reported that generating the daily orders report is taking
-          significantly longer than it should, impacting operational efficiency.
-        </p>
+        <div className="dialogue">
+          <img src="/lazy-bird.png" alt="Lazy Bird" className="mascot-icon" />
+          <p>
+            "So, this is the orders report I mentioned in the <a href="https://github.com/br-lazy-bird/database-performance-02-orders-reports/blob/main/README.md#the-problem" target="_blank" rel="noopener noreferrer">README</a>...
+            The sales team needs it for their meeting but it takes forever to load. It's just 500 orders but the system is struggling.
+            The backend logs look... busy. I'd investigate more but I have a really important staring contest with my ceiling scheduled, so...
+            could you load that report and figure out why it's so slow? Thanks!"
+          </p>
+        </div>
         <div className="note">
           <p>
             Note that orders are constantly being updated throughout the day, with
@@ -50,10 +54,6 @@ const OrdersReport: React.FC = () => {
             reporting requirement.
           </p>
         </div>
-        <p>
-          Click the button below to load the orders report and observe the load time.
-          The system needs investigation to identify why report generation is so slow.
-        </p>
       </div>
 
       {!loading && (

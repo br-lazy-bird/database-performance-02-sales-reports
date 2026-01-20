@@ -1,3 +1,27 @@
+/* Lazy Bird Dialogue */
+.dialogue {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.dialogue:last-child {
+  margin-bottom: 0;
+}
+
+.mascot-icon {
+  width: 60px;
+  height: 60px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+.dialogue p {
+  margin: 0;
+  padding-top: 8px;
+}
+
 .ordersReportTitle {
   font-size: 28px;
   font-weight: 600;

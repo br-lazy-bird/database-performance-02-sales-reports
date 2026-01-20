@@ -295,11 +295,11 @@ This guide covered the fundamental N+1 problem and its solution using eager load
 
 ---
 
+> "Oh, you actually fixed it? Nice... I mean, I knew you could do it. That's why I picked you, obviously."
+>
+> "Eager loading, huh? Yeah, I was gonna suggest that... eventually. Anyway, thanks for the help. I'm gonna go back to my nap now. But hey, if I find another bug, I know who to call..."
+
 **Ready for more challenges?** Check out the other broken systems in the Lazy Bird repository to learn about different optimization patterns!
-
-
-
-
 
 
 
