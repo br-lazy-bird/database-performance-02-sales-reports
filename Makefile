@@ -35,10 +35,9 @@ stop:
 	docker compose -f $(COMPOSE_FILE) --env-file $(ENV_FILE) down
 
 clean:
-	@echo "Cleaning up all containers and volumes..."
-	docker compose -f $(COMPOSE_FILE) --env-file $(ENV_FILE) down -v
-	docker compose -f $(COMPOSE_TEST_FILE) --env-file $(ENV_FILE) down -v
-
+	@echo "Cleaning up all containers, volumes, and images..."
+	docker compose -f $(COMPOSE_FILE) --env-file $(ENV_FILE) down -v --rmi all --remove-orphans
+	docker compose -f $(COMPOSE_TEST_FILE) --env-file $(ENV_FILE) down -v --rmi all --remove-orphans
 logs:
 	@echo "Showing application logs..."
 	docker compose -f $(COMPOSE_FILE) --env-file $(ENV_FILE) logs -f
